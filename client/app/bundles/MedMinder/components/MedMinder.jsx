@@ -14,7 +14,7 @@ import {
 import axios from 'axios';
 import moment from 'moment';
 
-const BASE_URL = process.env.ON_HEROKU ? 'https://medminder2point0.herokuapp.com' : 'http://localhost:3000'
+const BASE_URL = process.env.ON_HEROKU ? 'https://medminder2point0.herokuapp.com' : 'http://localhost:3000';
 
 class MedsList extends Component {
   constructor() {
@@ -41,7 +41,7 @@ class MedsList extends Component {
   addMedToDb = (e) => {
     axios.request({
       method: 'POST',
-      url: BASE_URL + '/medminders',
+      url: '/medminders',
       data: this.state.newMinder,
       headers: ReactOnRails.authenticityHeaders(),
     })
@@ -95,18 +95,18 @@ class MedsList extends Component {
     let id = e.target.name;
     axios.request({
       method: 'DELETE',
-      url:  BASE_URL + '/' + id,
+      url:  'medminders/' + id,
       data: this.state.newMinder,
       headers: ReactOnRails.authenticityHeaders(),
     })
     .then((res) => {
       console.log(res.response);
-      this.removeMedFromList(id)
+      this.removeMedFromList(id);
     });
   }
 
   removeMedFromList = (id) => {
-    let newSetOfMinders =  _.reject(this.state.minders, (minder) => minder.id == id);
+    let newSetOfMinders =  _.reject(this.state.minders, (minder) => minder.id === id);
     this.setState({
       minders: newSetOfMinders,
     });
