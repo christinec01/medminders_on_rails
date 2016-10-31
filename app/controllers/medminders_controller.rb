@@ -3,6 +3,10 @@ class MedmindersController < ApplicationController
     @medminders = Medminder.all
   end
 
+  def edit
+    @medminder = Medminder.find(params[:id]) 
+  end
+
   def create
     @medminder = Medminder.new(
       title: params[:title],

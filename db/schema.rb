@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20161030210556) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "medminders", force: :cascade do |t|
     t.string   "title"
     t.string   "frequency"
