@@ -14,6 +14,8 @@ import {
 import axios from 'axios';
 import moment from 'moment';
 
+const BASE_URL = process.env.ON_HEROKU ? 'https://medminder2point0.herokuapp.com' : 'http://localhost:3000'
+
 class MedsList extends Component {
   constructor() {
     super();
@@ -39,7 +41,7 @@ class MedsList extends Component {
   addMedToDb = (e) => {
     axios.request({
       method: 'POST',
-      url: 'http://localhost:3000/medminders',
+      url: BASE_URL + '/medminders',
       data: this.state.newMinder,
       headers: ReactOnRails.authenticityHeaders(),
     })
@@ -93,7 +95,7 @@ class MedsList extends Component {
     let id = e.target.name;
     axios.request({
       method: 'DELETE',
-      url: `http://localhost:3000/medminders/${id}`,
+      url:  BASE_URL + '/' + id,
       data: this.state.newMinder,
       headers: ReactOnRails.authenticityHeaders(),
     })
