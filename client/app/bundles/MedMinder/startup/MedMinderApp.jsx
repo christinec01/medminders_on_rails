@@ -15,7 +15,7 @@ const MedMinderApp = (props) => {
       <MedMinder medminders={props} />
     </MuiThemeProvider>
   );
-}
+};
 
 // This is how react_on_rails can see the MedMinderApp in the browser.
 ReactOnRails.register({MedMinderApp});
