@@ -14,7 +14,7 @@ import {
 import axios from 'axios';
 import moment from 'moment';
 
-const BASE_URL = process.env.ON_HEROKU ? 'https://medminder2point0.herokuapp.com' : 'http://localhost:3000';
+// const BASE_URL = process.env.ON_HEROKU ? 'https://medminder2point0.herokuapp.com' : 'http://localhost:3000';
 
 class MedsList extends Component {
   constructor() {
