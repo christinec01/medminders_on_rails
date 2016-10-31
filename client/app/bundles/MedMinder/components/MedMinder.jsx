@@ -34,8 +34,12 @@ class MedsList extends Component {
   }
 
   componentWillMount() {
+    let mindersToDisplay = this.props.medminders.map((minder) => {
+      minder.freqStr = minder.frequency;
+      return minder;
+    })
     this.setState({
-      minders: this.props.medminders,
+      minders: mindersToDisplay,
     });
   }
   addMedToDb = (e) => {
@@ -45,12 +49,17 @@ class MedsList extends Component {
       data: this.state.newMinder,
       headers: ReactOnRails.authenticityHeaders(),
     })
-    .then((res) => console.log(res.response));
+    .then((res) => {
+      console.log('RES IS', res);
+      this.addMedToList(res.data.minder);
+    });
   }
 
-  addMedToList = (e) => {
+  addMedToList = (minder) => {
+    let newMinders = this.state.minders.concat([minder]);
+    console.log('ADDING TO LIST', newMinders);
     this.setState({
-      minders: this.state.minders.concat(this.state.newMinder),
+      minders: newMinders,
     });
 
     // console.log(this.state.newMinder.time);
@@ -100,19 +109,20 @@ class MedsList extends Component {
       headers: ReactOnRails.authenticityHeaders(),
     })
     .then((res) => {
-      console.log(res.response);
+      console.log('REMOVE MINDER WITH ID', id);
       this.removeMedFromList(id);
     });
   }
 
   removeMedFromList = (id) => {
-    let newSetOfMinders =  _.reject(this.state.minders, (minder) => minder.id === id);
+    let newSetOfMinders = _.reject(this.state.minders, (minder) => {
+      return minder.id === parseInt(id);
+    });
     this.setState({
       minders: newSetOfMinders,
     });
   }
   addMedMinderFull = (e) => {
-    this.addMedToList(e);
     this.addMedToDb(e);
     this.clearField(e);
     this.setState({open: false})

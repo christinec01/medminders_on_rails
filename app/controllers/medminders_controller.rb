@@ -4,18 +4,18 @@ class MedmindersController < ApplicationController
   end
 
   def edit
-    @medminder = Medminder.find(params[:id]) 
+    @medminder = Medminder.find(params[:id])
   end
 
   def create
     @medminder = Medminder.new(
       title: params[:title],
-      frequency: params[:freqInt],
+      frequency: params[:freqStr],
       time: params[:time],
       start_date: params[:startDate]
     )
     if @medminder.save
-      render json: {response: "success!"}, status: 200
+      render json: {response: "success!", minder: @medminder}, status: 200
     else
       render json: {response: "fail!"}, status: 400
     end
