@@ -1,0 +1,2 @@
+class Medminder < ApplicationRecord
+end

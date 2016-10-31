@@ -9,11 +9,13 @@ injectTapEventPlugin();
 
 import MedMinder from '../components/MedMinder';
 
-const MedMinderApp = (props) => (
-  <MuiThemeProvider>
-  <MedMinder {...props} />
-  </MuiThemeProvider>
-);
+const MedMinderApp = (props) => {
+  return (
+    <MuiThemeProvider>
+      <MedMinder medminders={props} />
+    </MuiThemeProvider>
+  );
+}
 
 // This is how react_on_rails can see the MedMinderApp in the browser.
 ReactOnRails.register({MedMinderApp});
