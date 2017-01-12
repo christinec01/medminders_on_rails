@@ -160,8 +160,11 @@ class MedsList extends Component {
     />,
    ];
     return (
+      <Paper className="main-content-paper" style={{padding: '4px', margin: '15px auto', width: '80%'}} zDepth={5}>
       <div style={{textAlign: 'center'}}>
-        <h1 className="alert alert-info this-works">Medminders</h1>
+
+          <Paper style={{height:'100%', width:'100%', textAlign:'center', backgroundColor:'#0D47A1'}} zDepth={4}> <h1 className="alert alert-info this-works title-well-class">Med </h1> <i className="fa fa-4x fa-clock-o" zIndex={{10000}}></i><h1 className="alert alert-info this-works title-well-class"> minders</h1></Paper>
+
         <br />
         <h2>Hey, Mind Your Meds</h2>
         <FlatButton
@@ -175,8 +178,8 @@ class MedsList extends Component {
           return (
           <Paper style={{padding: '15px', margin: '10px auto', width: '30%'}} zDepth={5}>
             <p key={i}> {minder.title} - {minder.freqStr} - {minder.time} starting on: {moment(minder.startDate).format("MM-DD")}</p>
-            <button name={minder.id} onClick={this.handleEditClick}>Edit</button>
-            <button name={minder.id} onClick={this.handleDeleteClick}>Delete</button>
+            <FlatButton name={minder.id} onClick={this.handleEditClick} primary={true} label="Edit" />
+            <FlatButton name={minder.id} onClick={this.handleDeleteClick} secondary={true} label="Delete" />
           </Paper>
         );
         })}
@@ -225,8 +228,9 @@ class MedsList extends Component {
           value={this.state.newMinder.startDate}
           />
         </Dialog>
+        </div>
 
-      </div>
+    </Paper>
     );
   }
   }
