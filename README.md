@@ -1,24 +1,17 @@
-# README
+# Medminders
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Simple application with a Rails backend and React front end. Uses ES6 syntax and Material UI components for styling. Integrated Twilio API to enable text alerts(free version so it will only work with the number hardcoded in the local .env file) 
 
-Things you may want to cover:
+* Rails 5.0.0
 
-* Ruby version
+* React
 
-* System dependencies
+* Node Package Manager(NPM)
 
-* Configuration
+* ES6
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+To start the application:
+1. Clone repo
+2. Run `bundle && npm install`
+3. Then start server by running `bundle exec foreman start -f Procfile.dev`
+4. Go to localhost:3000
