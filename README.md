@@ -11,7 +11,11 @@ Simple application with a Rails backend and React front end. Uses ES6 syntax and
 * ES6
 
 To start the application:
+
 1. Clone repo
+
 2. Run `bundle && npm install`
+
 3. Then start server by running `bundle exec foreman start -f Procfile.dev`
+
 4. Go to localhost:3000
