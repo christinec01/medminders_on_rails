@@ -163,7 +163,16 @@ class MedsList extends Component {
       <Paper className="main-content-paper" style={{padding: '4px', margin: '15px auto', width: '80%'}} zDepth={5}>
       <div style={{textAlign: 'center'}}>
 
-          <Paper style={{height:'100%', width:'100%', textAlign:'center', backgroundColor:'#0D47A1'}} zDepth={4}> <h1 className="alert alert-info this-works title-well-class">Med </h1> <i className="fa fa-4x fa-clock-o" zIndex={{10000}}></i><h1 className="alert alert-info this-works title-well-class"> minders</h1></Paper>
+          <Paper
+            style={{height:'100%', width:'100%', textAlign:'center', backgroundColor:'#0D47A1'}}
+            zDepth={4}
+          >
+            <div style={{display: 'flex', alignItems:'center'}}>
+              <h1 className="alert alert-info this-works title-well-class">Med</h1>
+              <i className="fa fa-4x fa-clock-o"></i>
+              <h1 className="alert alert-info this-works title-well-class">minders</h1>
+            </div>
+          </Paper>
 
         <br />
         <h2>Hey, Mind Your Meds</h2>

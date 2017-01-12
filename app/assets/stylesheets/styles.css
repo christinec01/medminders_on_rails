@@ -5,6 +5,9 @@
   background-color: #0D47A1;
   max-width: 100%;
   height: 172px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
 }
 .main-content-paper {
